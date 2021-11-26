@@ -1,0 +1,139 @@
+1. 인터페이스란?
+P314
+모니터 - 액정(LCD, LED) - (인치수, LCD, LED, 밝기)
+		  - 메인보드(제품군에 따른 규격)
+		  - 파워서플라이(220V, 110V)
+          - 모니터와 본체를 연결하는 IO 포트
+			(RGB, HDMI, USB-C, DVI, Display-port)
+			
+모니터의 구성 요소의 각 표준 정의		
+
+interface - 하나의 클래스에서 여러개의 인터페이스를 구현 
+class 대신 interface 예약어
+implements -> 인터페이스 구현 
+
+		 
+참고) 추상클래스 -> 상속(단일 상속) - extends 
+클래스 앞에 abstract 예약어 
+
+각 장치별 표준, 규약 -> 추상 메서드
+-> abstract 예약어는 생략 -> 컴파일러에서 자동 추가 public abstract
+
+메서드의 구현 부분이 없으므로 인스턴스 생성 불가 X 
+하위 클래스에서 구현을 통해서 
+-> 인스턴스 생성이 불가 -> 멤버변수 X 
+-> 인터페이스내에 정의되어 있는 값 -> static 상수
+
+
+2. 인터페이스와 다형성
+
+
+3. 인터페이스 요소
+	 1) 인터페이스 상수
+	 2) 디폴트 메서드
+	 3) 정적 메서드
+	 4) private 메서드
+	 
+4. 인터페이스 상속
+인터페이스 상속, 다중 상속이 가능
+extends 예약어 - 인터페이스간 상속
+
+
+Collection 인터페이스 
+	List  인터페이스  Set 인터페이스
+	- ArrayList 
+	- LinkedList
+	- Vector
+	
+	
+	ArrayList<Computer> list = new ArrayList<>();
+	List<Computer> list = new ArrayList<>();
+	
+P313
+Calc calc = new CompleteCalc();
+					showInfo() 
+					
+ComplateCalc calc2 = (CompleteCalc)calc;
+
+P322
+Scheduler interface
+	- getNextCall();  // 유입된 상담전화를 가져오는 메서드
+	- sendCallToAgent();  // 상담전화를 상담원에서 배분
+	
+RoundRobin(순서대로 배분)
+LeastJob(짧은 대기열에 따라 배분)
+ProrityAllocation(우선순위에 따라 배분)
+
+06 throws IOException
+12 System.in.read() - InputStream -> 바이트 단위의 콘솔 입력
+
+P326  - 나혼자 코딩
+AgentGetCall -> Scheduler 인터페이스
+	-> getNextCall() 
+	-> sendCallToAgent() 
+	
+SchedulerTest -> 'A' -> 호출 
+
+
+인터페이스 상수
+-> 정적 변수
+-> public static final 
+
+디폴트 메서드와 정적메서드
+
+디폴트 메서드
+default 예약어
+-> 인터페이스를 구현한 클래스의 인스턴스 생성 후 사용 가능
+
+정적 메서드
+-> 인스턴스 생성과 상관 없이 사용 가능한 메서드
+	
+private 메서드 - 인터페이스 내부에서만 접근이 가능 
+
+P328 - 디폴트 메서드
+ -> default -> 인터페이스를 구현한 클래스의 인스턴스에서 사용할 메서드
+
+
+디폴트 메서드 재정의하기
+
+P331 - private 메서드
+
+P333 - 인터페이스 활용하기
+
+인터페이스 - 장치 
+모니터 - 디스플레이
+	     - 메인보드
+		 - 파워서플라이
+		 - IOPort - DIV, RGB, HDMI, Display port, USB-C
+	
+인터페이스는 여러개를 함께 구현
+implements(구현) 인터페이스, 인터페이스
+
+339
+
+MyClass mClass = new MyClass();
+
+X xClass = mClass; -> x();
+Y yClass = mClass; -> y();
+
+인터페이스 구현과 클래스 상속 함께 쓰기
+
+
+Queue
+Stack
+
+345
+Q1. implements
+Q2. 추상 클래스
+Q3. 상수(static 상수)
+Q4. 다형성
+Q5. 디폴트 메서드, 정적 메서드, private 메서드
+Q6. 구현 가능(예)
+
+P314~347
+정독 -> 예제
+
+
+
+
+
