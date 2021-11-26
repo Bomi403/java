@@ -1,0 +1,65 @@
+스트림 
+	자료형에 상관없이 일렬로 나열 -> 처리 
+	
+	
+	java.util.Arrays
+			-stream
+			
+			.forEach(Consumer  ... 
+			
+			
+			Consumer -> @FunctionalInterface
+				- T Accept(T t);
+				
+			stream을 소비해서 연산을 해서 최종 결과를 산출(최종 연산)
+				
+			.map(Function 
+			-> 스트림을 가공해서 생산 -> 전달(중간연간)
+			
+			중간 연산 
+				.map()
+				.mapToInt()
+				.filter()
+				.sorted() -> 정렬  -> 기준 Comparable, Comparator 
+				
+			최종 연산 - 스트림을 소비 -> 최종 결과물 
+						  - 스트림은 일회용(한번 소비하면 끝)
+				.forEach()
+				.count()
+				.sum()
+				.reduce() 
+				
+		
+		Collection 인터페이스 
+			.stream() -> Stream으로 만들어주는 메서드
+			- List 
+				ArrayList, LinkedList, Vector, Queue, Stack 
+			- Set 
+				HashSet, TreeSet
+
+
+		480 - 16~20
+				22 
+				
+		483- 17
+		
+		P484
+		Q1. final (상수화) 
+		
+		지역 내부 클래스 -> 메서드 안에 정의되어 있는 클래스
+		-> 호출 -> 스택 
+		
+		Q2. 익명 내부 클래스
+		Q3. 람다식 
+		Q4. 함수형 인터페이스
+			@FunctionalInterface
+		
+		Q5.
+		
+		Q6. 스트림
+		485
+		Q7.
+		Collection 인터페이스 
+			- stream()
+			
+		
