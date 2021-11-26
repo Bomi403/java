@@ -1,0 +1,142 @@
+1. 추상 클래스
+추상 <---> 구체적
+-> 아직 구현되지 않은 내용
+-> 기능 구현 -> 메서드 구현
+-> 메서드등 아직 구현되지 않은 클래스
+-> 메서드 정의만 하는 클래스
+-> 구현 부분 제외, 반환값, 메서드명, 매개변수
+
+-> 추상 -> 공통
+-> abstract 예약어
+	정의 부분이 없는 메서드 -> abstract 예약어
+	abstract 메서드가 있는 클래스 역시 abstract 예약어
+	
+	Computer 
+	   monitor  
+	   keyboard			
+	   cpu
+	   
+	Desktop
+		- monitor
+		- keyboard 
+		- cpu
+	
+	Notebook
+		- monitor
+		- cpu
+		
+	Tablet extends Notebook 
+		- keyboard()
+	   
+	Computer에 정의되어 있는 추상 메서드
+		- 컴퓨터라면 구현되어야 하는 표준,기준 
+		- 컴퓨터의 공통 설계도
+		
+	결제	- 결제 처리 업체의 클래스
+	클래스     (결제 처리 클래스의 공통 적인 내용)
+	
+	abstract class Payment 
+		-pay()
+		- LGPayment 
+			- pay();
+		- KakaoPayment
+			- pay();
+	
+	
+		
+- 추상 클래스의 정의된 메서드 -> 상속을 통해서 구현이 된다.
+- 구현 부분이 없으면 -> 인스턴스 생성 불가 -> 상속 받은 하위클래스가 반드 시 구현
+
+- 추상(공통)
+	+ 하위 클래스가 공통으로 사용해야 하는 메서드나 멤버변수 
+	
+- 다형성	
+
+
+288 - 나혼자 코딩
+Car - run(), refuel(), stop() 
+	
+	- Bus
+		- takePassenger()
+		
+	- AutoCar
+		- load()
+
+
+2. 템플릿 메서드
+템플릿 - 틀이 있는 메서드
+		  - 순서가 정해져 있는(로직의 흐름이 정해져 있는) 메서드
+		  - 일련의 절차 
+ final public void run() {
+	startCar();
+	drive();
+	stop();
+	turnOff();
+ }
+ 
+ 메서드 final -> 메서드 재정의 불가(하위 클래스에서 임의 변경 X)
+ (변경 X - 정해져 있는 절차)
+ - 모든 하위 클래스가 지켜야 하는 절차 정의 
+ 
+ P292 
+ Car (추상 클래스)
+	- startCar()
+	- drive()
+	- stop()
+	- turnOff()
+	- run() - 템플릿 메서드(startCar() -> drive() -> stop() -> turnOff());
+ 
+AICar - 자율 주행 자동차 - 자율적으로 운전, 멈춤
+ManualCar - 사람이 운전하는 자동차 - 사람이 운전, 사람이 멈춘다
+
+시동을 걸고, 시동을 끄는 동작은 공통(공일) -> 구현된 메서드
+(startCar(), turnOff())
+
+운전과, 멈춤은 클래스(자율주행, 사람이 주행)마다 다르다 -> 정의된 메서드로 구현(추상 메서드 - drive, stop)
+
+run -> 자동차가 운전하는 일련의 절차(템플릿 메서드)
+
+P296 
+
+Player
+	- PlayerLevel level  - 초급자레벨(BeginnerLevel), 중급자 레벨(AdvancedLevel), 고급자레벨(SuperLevel)
+	- getLevel()
+	- updateLevel(PlayerLevel)
+	- play();
+	
+PlayerLevel  - 추상 클래스
+	run(), jump(), turn(), showLevelMessage();
+	go(int) - 게임이 시작되면 실행되는 순서(템플릿 메서드)
+			 
+	
+	BeginnerLevel 
+		run(), jump(), turn(), showLevelMessage();
+
+	AdvancedLevel
+		run(), jump(), turn(), showLevelMessage();
+		
+	SuperLevel
+		run(), jump(), turn(), showLevelMessage();
+		
+
+추상 클래스의 다형성
+
+
+3. final 예약어(변경 불가) 
+클래스명 앞 final  -> 상속 불가
+메서드명 앞 final -> 메서드 재정의 불가
+변수명 앞 final -> 상수 -> 데이터 영역
+
+공유하는 상수 값을 정의
+static 
+
+private final char[] value
+
+311 
+Q1. 추상 메서드, 추상 클래스
+Q2. final 
+Q3. abstract
+Q4. 템플릿
+
+P281 ~ 312 
+정독 -> 예제
