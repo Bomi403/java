@@ -1,0 +1,103 @@
+P351
+1. Object 클래스
+	1) java.lang.Object 
+			- 모든 클래스는 java.lang.Object 상속 받고 있다.
+	2) 컴파일러가 자동 추가
+		a. import java.lang.*;
+		b. extends Object 
+		String
+		Wrapper(Integer, Double .... Long, Exception)
+		Math
+		Number
+	3) toString -> 인스턴스를 출력할때 호출되는 메서드
+		Object
+			toString
+				public String toString() {
+					return getClass().getName() + "@" + Integer.toHexString(hashCode());
+				}
+		    equals - 인스턴스의 주소의 일치 여부 
+		
+		
+		
+			Student s1 = new Student(20001425, "이름1");
+		Student s2 = new Student(20001425, "이름1");
+
+		System.out.println("s1과 s2의 equals(논리적 일치) ? : " + (s1.equals(s2)));
+		
+	4) Object clone()	
+		
+		참고) throws - 예외 전가
+		
+		try {
+		s2.clone()
+		
+		} catch (CloneNotSupportedException e) {
+		
+		}
+	5) Class getClass -> 클래스의 정보
+	
+	356 -- toString(_
+	355
+	String, Integer 
+	
+	366 clone() -> 인스턴스 복사(새로운 인스턴스 주소)
+	
+	P 374
+2. String 클래스
+	상수풀
+	char ch = 'A';
+	
+	데이터 영역
+	Code & Constants 영역
+	
+3. Wrapper 클래스
+	기본 자료형 처럼 사용할 수 있는 클래스
+	byte -   Byte
+	short - Short
+	int   - Integer 
+	long  - Long 
+	float - Float
+	double - Double 
+	boolean  - Boolean 
+	char - Character 
+	
+	P377 오토박싱과            언박싱 
+			int -> Integer         Integer -> int 
+			
+			자동
+4. Class 클래스 
+	Object 
+		.getClass()
+
+
+	모든클래스.class 
+	
+	컴파일 이후 실행 중에서 로딩
+	클래스가 있는지 여부.... 컴파일 시에 체크
+	
+	Class.forName -> 동적 로딩
+
+	383 08~09
+	
+	386
+	Q1. equals  + hashCode 
+	Q2. 
+
+	final byte[] value = 
+	
+	Q3. Wrapper 
+		+ 오토박싱, 언박싱 (Wrapper  -> 기본)
+		  (기본 -> Wrapper 클래스)
+		
+
+	@Override 
+	pubilc String toString() {
+		return name + " " + type;
+	}
+	
+	Q5. Class.forName
+	
+	P351~386
+	정독 -> 예제
+	
+	
