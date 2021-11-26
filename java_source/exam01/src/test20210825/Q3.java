@@ -1,0 +1,16 @@
+package test20210825;
+
+public class Q3 {
+	public static void main(String[] args) {
+		int level = 2; // 현재 층수 - 임의 지정 가능 
+		switch (level) {
+			case 1:  System.out.println("1층 약국 입니다."); break;
+			case 2: System.out.println("2층 정형외과 입니다.");  break;
+			case 3: System.out.println("3층 피부과 입니다.");  break;
+			case 4: System.out.println("4층 치과 입니다."); break;
+			case 5: System.out.println("5층 치과 입니다."); break;
+			default : 
+				System.out.println("없는 층 입니다.");
+		}
+	}
+}
