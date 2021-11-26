@@ -1,0 +1,147 @@
+P512
+1. 스트림
+- 가상의 통로  -> 입력, 출력 
+
+
+1) 입력스트림과 출력 스트림 
+입력 스트림 InputStream, Reader 
+				- FileInputStream 
+				- FileReader 
+				- BufferedInputStream
+				- BufferedReader 
+				- inputStreamReader 
+				
+출력 스트림 OuputStream, Writer  
+				- FileOutputStream 
+				- FileWriter 
+				- BufferedOutputStream 
+				- BufferedWriter 
+				- OutputStreamWriter
+				
+2) 바이트 단위 스트림과 문자단위 스트림 
+	바이트 단위 스트림(1바이트)
+		- FileInputStream, FileOutputStream, BufferedInputStream, BufferedOutputStream 
+	
+	문자단위 스트림(2바이트)
+		- FileReader, FileWriter, BufferedReader, bufferedWriter 
+	
+3) 기반 스트림과 보조스트림
+	기반스트림 
+		- 직접 읽고 쓰는 스트림
+		FileInputStream, FileReader , FileOutputStream, FileWriter
+		
+	보조스트림 
+		- 직접 읽고 쓰는 기능 X -> 기반 스트림에 + 기능을 추가 
+		InputStreamReader, OutputStreamWriter - 바이트 단위 스트림 -> 문자 단위 스트림 변경 
+		BufferedInputStream, BufferedOutputStream
+		BufferedReader, BufferedWriter 
+		
+		
+	커피 
+		 에스프레소(커피 + 보조 재료 ..)
+		바닐라라떼(커피 + 우유 + 바닐라 향 ... )
+		카푸치노(커피 + 우유 + .... )
+	
+
+2. 표준입출력
+	콘솔에서 입력, 출력 
+	System 클래스
+		static PrintStream out - 콘솔에서 출력 
+		static InputStream in  - 콘솔에서 입력 
+		static PrintStream err - 콘솔에서 에러를 출력 
+		
+		BufferedReader br  = new BufferedReader(new InputStreamReader(System.in));
+		
+		-> 문자 단위로 쉽게 입력 받을 수 있는  클래스
+		Scanner 클래스
+			1) 문자단위로 입력을 받을 수 있고 
+			2) 입력 받는 데이터의 자료형을 다양하게 할 수 있다.
+		
+		Console 클래스
+			System.console();
+			String readLine();
+			char[] readPassword();
+
+3. 바이트 단위 스트림
+	InputStream
+		- FileInputStream 
+		- ByteArrayInputStream 
+		- FilterInputStream  - 보조 스트림의 상위 클래스
+		
+		offset -> 시작점
+		length -> 길이
+		
+	OutStream 
+		- FileOutputStream 
+		- ByteArrayOutputStream
+		- FilterOutputStream - 보조 스트림의 상위클래스
+		
+	바이트 스트림 -> 문자 처리(2바이트 문자) -> 깨짐 
+	
+4. 문자단위 스트림
+	Reader 
+		- FileReader
+	
+	Writer 
+		- FileWriter 
+	
+5. 보조스트림
+	기반 스트림 - 직접 읽고, 쓰는 기능 
+	보조 스트림 - 직접 읽고, 쓰는 기능 X -> 기반스트림을 보조 해주는 역할
+	
+	FilterInputStream, FilterOutputStream
+		
+	BufferedInputStream, BufferedOutputStream -  바이트 단위 스트림에 버퍼를 제공 
+	(8,192 -> 8kb)
+	
+	InputStreamReader, OutputStreamReader  - 바이트 단위 스트림 -> 문자 단위 스트림 
+	
+	BufferedReader, BufferedWriter -> 문자 단위 스트림에 버퍼를 제공 
+	
+	DataInputStream, DataOuputStream -> 자료형 그 자체로 데이터를 저장, 읽을수 있게 해주는 보조 스트림
+	 -> 데이를 읽을때, 입력한 순서대로 읽어야 하고, 입력한 자료형에 맞는 메서드를 호출 
+	
+	ObjectInputStream, ObjectOutStream  -> 인스턴스를 상태 그대로 저장, 읽을때
+	P554
+	
+	//BufferedInputStream bis = new BufferedInputStream(new DataInputStream(System.in))
+
+
+6. 직렬화
+	ObjectInputStream
+	
+	ObjectOutputStream
+	
+	Serializble -> 인스턴스 전체를 저장
+	
+	
+	Externalizable 인터페이스
+	555 17~25
+	558
+	RandomAccesFile 
+		
+		
+7. 기타 
+	1) File 클래스
+	2) RandomAccessFile 클래스
+		- 파일 출력, 입력을 동시에 할 수 있는 클래스 
+
+
+	EOF -> End Of File
+
+P545 - 12~15
+
+P562
+Q1.
+Q2. InputStreamReader
+Q3. FileOutputStream + OutputStreamWriter 
+	
+Q4. 보조스트림
+Q5.직렬화 
+Q6. Serializable, Externalizable
+
+10/4, 11
+학점산출프로그램
+
+P512~562 
+정독 -> 예제
