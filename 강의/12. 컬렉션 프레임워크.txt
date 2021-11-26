@@ -1,0 +1,257 @@
+1. 제네릭
+하나의 참조 자료형(X) -> 여러 참조 자료형으로 사용할 수 있도록 하는 것
+GenericPrinter<Powder>
+
+Powder - 대입된 자료형
+GenericPrinter<Powder> - 제네릭 자료형
+
+T -> Powder -> 인스턴스가 생성 될때 변환
+
+static 변수, 메서드의 자료형으로 변환 불가(X) -> 생성 시점 차이 변환 불가
+
+멤버 변수와 일반 메서드만 제네릭 자료형 적용 가능(O)
+
+자료형 매개변수 T와 static 
+
+399 - 18
+
+제너릭 메서드 확인하기
+Number 
+	- Integer -> Number  -> doubleValue() -> Integer에 있는 doubleValue()
+	- Double -> Number -> doubleValue(); -> Double에 있는 doubleValue();
+	- Float ...  -> Number -> doubleValue()
+
+<   > -> 대입된 자료형이 투입
+
+static 메서드 -> 인스턴스가 생성될때 제너릭 자료형이 결정 -> X
+				  -> 메서드 내로 한정해서 투입하면 가능 O
+
+
+ArrayList<String> list = new ArrayList<String>();
+
+Vector vc = new Vector();
+vc.add(new Student));
+Student s1 = (Student)vc.get(0);
+
+2. 컬렉션 프레임워크
+자료구조 
+
+Collection 인터페이스 
+	- List 인터페이스 
+		순서가 있는 순차적인 자료로 관리, 중복 가능  - 배열
+		ArrayList 
+		Vector 
+		LinkedList
+		Queue
+		Stack 
+		
+	- Set 인터페이스
+		- 순서가 정해지지않은 중복없는 자료로 관리. - 집합
+		HashSet 
+		TreeSet -> 순서가 있는 형태로 자료 관리(중복 X + 정렬 O - (이진)트리 구조 정렬)
+		
+Map 인터페이스
+		- key - value 형태로 되어 있는 자료로 관리
+		HashMap
+		TreeMap -> 순서 있는 형태로 관리(정열 O)
+
+		Key -> Value를 조회하기 위한 값
+		-> Key는 중복이 안되는 Set 자료형
+		-> Value 중복이 되는 값
+
+3. List 인터페이스
+	- 순차 자료 구조(순서 있는 자료 구조) 
+	- 배열
+	- 배열 객체(ArrayList - 물리적 순차 자료구조, LinkedList - 논리적 순차 자료구조)
+	- Member
+		추가, 삭제, 출력
+	
+	P412 - 나혼자 코딩 
+		(ArrayList의 특정 위치에 회원 추가하기)
+		
+		insertMember(인덱스 번호, Member 인스턴스)
+		
+	P413 - 배열 용량
+	ArrayList - Object[] 
+	new ArrayList() -> Object[] ... = new Object[10];
+	-> 10이상 -> 11번째 -> 새로운 배열 객체(Object) -> 20 -> 복사 -> 반환
+	
+	-> insertMember -> 중간에 추가
+	(물리적 배열 공간)
+	-> 잦은 추가, 수정, 삭제 -> 성능 저하
+	
+	-> 보완 -> LinkedList
+	
+	
+	LinkedList -> 순차 자료 구조
+		(ArrayList -> 물리적 순서, 논리적 순서 동일 - 배열 객체)
+		
+		물리적 순서 X -> 논리적 순서(O)
+		Linked -> 서로 요소간 논리적 연결
+		요소 -> 데이터 + 다음 요소의 주소
+		(다음 요소의 주소만 가지고 추가, 수정, 삭제 -> 물리적 공간을 늘리거나 변경 X)
+		  -> 추가, 수정, 삭제시 -> 다음 요소 주소만 재구성
+		  
+		 A -> B -> D -> C
+	            (주소의 재구성)    
+				
+		D -> 요소를 삭제 -> 서로 연결되어 있는 주소만 변경 (A -> B -> C)
+																				D
+																				
+		LinkedList -> 자료의 추가, 수정, 삭제가 빈번할때 
+						+(자료의, 추가, 삭제에 관련된 추가 메서드)
+        ArrayList -> 자료가 변경되지 않는 조회용 자료 -> 매우 빠르다(물리적 순서)
+		
+	
+	ArrayList -> 스택 
+						- 추가(push)
+						- 꺼내기(pop) - 가장 마지막에 추가된 요소 제거 
+			    -> 큐
+						- enQueue(추가)
+						- deQueue(제거) - 가장 처음에 추가된 요소 제거
+		
+		P421
+		Iterator
+			- 반복자
+			.hasNext() -> 다음 요소가 있는지 여부 체크
+			.next() -> 다음 요소 (요소의 위치를 이동하면서 다음 요소 가져온다)
+			
+4. Set 인터페이스
+	- 집합 자료형 
+	- 순서 상관 X 
+	- 중복 허용 X
+	HashSet
+		-> get(int index) - X -> 순차 자료 구조에만 있는 메서드
+		-> 인덱스번호로 순회 조회 불가 (순서가 없으므로)
+		
+		-> 중복 여부를 체크 
+			- equals -> true
+			- hashCode -> 동일 여부
+			
+			-> 인스턴스의 중복 여부는 equals, hashCode 재정의 하여 논리적 동일성을 구현
+	TreeSet 
+		- 집합 자료형 + 정렬
+		- 정렬의 기준을 정해 줘야 한다
+		   - java.lang.Comparable<T>
+		         - int compareTo(...)
+				  반환값 양수 -> 오름차순 
+				  반환값 음수 -> 내림차순
+				 
+			- java.util.Comparator<T>
+				int compare
+					반환값 양수 -> 오름차순
+					반환값 음수 -> 내림차순
+				
+5. Map 인터페이스
+	key - value 쌍의 자료 구조
+		해시 -> 주소 -> 검색 용도
+		Key -> 중복 불가(Set 자료형)
+		Value -> 중복 가능 (Collection 자료형)
+		
+		Iterator 구현 X
+		
+		.keySet() -> Set -> Interator
+		
+	- HashMap
+	- TreeMap(HashMap + 정렬)
+	
+	
+	
+Collection 인터페이스
+	- 반복 순회  - Iterator
+	
+	List 인터페이스(순차 자료 구조 - 배열) - 인덱스 번호
+		- ArrayList 
+			(물리적 순서 == 논리적 순서 -  변경, 추가, 삭제 -> 매번 인스턴스가 내부에서 생성 반복)
+			- 추가, 수정, 삭제시 부하
+			- 조회 전용으로 사용 할 경우 유리 
+		- LinkedList
+			(물리적 순서 X, 논리적 순서 - 요소 마다 다음 요소의 주소를 가지고 있다)
+			- 추가, 수정, 삭제 시 유리 
+		    - 조회 전용으로는 ArrayList보다 불리하다
+			
+	Set 인터페이스(집합 자료 구조)
+		- 순서 유지 X 
+		- 중복 X 
+		- 중복 여부 체크  -> equals, hashCode -> 논리적 동일 -> 인스턴스 중복 
+		
+		HashSet 
+		TreeSet (HashSet + 정렬  
+									- java.lang.Comparable  Interface - int compareTo
+									- java.util.Comparator interface - int compare
+												- TreeSet, TreeMap compare가 정의되어 있는 인스턴스를 생성자 
+												   매개변수로 넣어 줘야 한다.
+									
+									반환값이 양수 -> 오름차순 정렬
+									반환값이 음수 -> 내림차순 정렬
+		
+Map 인터페이스
+	- Key - Value 쌍 
+	- Iterator X -> Map 자체로는 반복 순회 출력 불가능
+	
+	- Key는 Set 자료형
+		-> keySet() 메서드를 이용해서 반복 순회(Iterator 사용 사용)
+		Set은 Collection 인터페이스를 상속 -> Iterator가 있음
+		
+	HashMap
+	TreeMap(HashMap + 정렬)
+	 
+	 
+	 java.lang.Comparable - int compareTo
+	 java.util.Comparator - int compare
+	 438 - 16 
+	 
+1. Collection 인터페이스
+	Iterator - 반복자(hasNext(), next())
+	1) List 인터페이스(순차 자료구조 - 배열)
+		- ArrayList  (물리적 순서 == 논리적 순서 -> Object[])
+		- LinkedList  (물리적 순서 X -> 논리적 순서 O - 요소 -> 다음 요소를 접근하는 주소)
+		
+		- Vector 
+		- Queue
+		- Stack 
+	2) Set 인터페이스(집합 자료 구조)
+		- 순서 X
+		- 중복 X 
+		- HashSet 
+		- TreeSet(HashSet + 정렬 - Comparable interface, Comparator interface)
+		
+2. Map 인터페이스
+	key - value 쌍 
+	Iterator 정의 X -> 반복 할 수 없음 
+	key -> 중복 불가
+	value -> 중복 가능
+	
+	
+	- HashMap
+	- TreeMap(HashMap + 정렬(키) - 정렬의 기준 -> Comparable, Comparator)
+	
+	440  - 28 - showAllMember
+	
+	Iterator<Integer> ir = hashMap.keySet().iterator();
+	while(ir.hasNext()) {
+		int key = ir.next();
+		
+		Member member = hasMap.get(key);
+	}
+	
+	446
+	Q1. 컬렉션 프레임워크
+	JDK - Java Development Kit
+	Q2. 제네릭 프로그래밍
+		->클래스명<T>
+				-> 인스턴스가 생성될때 결정 -> static 사용 불가
+				-> Object -> T로 입력된 자료형으로 다운 캐스팅
+				-> T extends 제한할 참조자료형
+				
+		메서드 내에서 
+		public static <T, V> double .... 
+			-> 호출 되는 시점에서 결정
+		
+	Q3. Iterator 
+	 
+	Q4. java.util.Comparator -> int compare + 
+	
+	Q5. equals, hashCode
+	
+	388~447 -> 정독 -> 예제 
